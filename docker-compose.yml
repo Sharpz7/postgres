@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  postgres:
+    hostname: postgres
+    image: sharp6292/postgres:latest
+
+    environment:
+      PGDATA: /data/postgres
+      POSTGRES_PASSWORD: ${POSTPASS}
+
+    volumes:
+       - postgres:/data/postgres
+
+    restart: always
+
+  pgadmin:
+    hostname: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${ADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${ADMINPASS}
+
+    volumes:
+       - pgadmin:/root/.pgadmin
+
+    restart: always
+
+volumes:
+  postgres:
+  pgadmin:
+
+networks:
+    default:
+        external:
+            name: sharpnet
