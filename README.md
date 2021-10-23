@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/Sharpz7/postgres/tree/main.svg?style=svg)](https://circleci.com/gh/Sharpz7/postgres/tree/main)
+
 # Postgres and PGAdmin
 
 A twin-container install of a [Postgres](https://www.postgresql.org/) Database along with [PGAdmin](https://www.pgadmin.org/) designed to run with [SharpNet](https://github.com/Sharpz7/sharpnet) and [SharpCD](https://github.com/Sharpz7/sharpcd)
