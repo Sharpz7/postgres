@@ -6,6 +6,7 @@ COPY ./buildfiles/start.sh /start.sh
 COPY ./sharpnet/nginx.conf /sharpnet/nginx.conf
 
 RUN chmod +x /start.sh
+RUN chmod -R 777 /sharpnet
 
-ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["/start.sh"]
+USER postgres
+CMD ["/start.sh", "postgres"]

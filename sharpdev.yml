@@ -1,0 +1,12 @@
+version: 1
+
+
+scripts:
+  # Run from build
+  test: |
+    sudo docker build -t postgres-test .
+    sudo docker run postgres-test
+
+  # Get into container
+  enter: |
+    sudo docker run -it postgres-test /bin/bash
