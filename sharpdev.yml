@@ -1,11 +1,12 @@
 version: 1
 
+envfile: .env
 
 scripts:
   # Run from build
   test: |
     sudo docker build -t postgres-test .
-    sudo docker run postgres-test
+    sudo docker run --env-file .env postgres-test
 
   # Get into container
   enter: |
