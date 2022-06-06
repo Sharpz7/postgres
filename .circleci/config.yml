@@ -18,6 +18,7 @@ jobs:
             echo "ADMIN_EMAIL=${ADMIN_EMAIL}" > .env
             echo "ADMINPASS=${ADMINPASS}" >> .env
             echo "POSTPASS=${POSTPASS}" >> .env
+            echo "SHARPDOMAINS=${SHARPDOMAINS}" >> .env
 
       - sharpcd/deploy
 
