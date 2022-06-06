@@ -1,4 +1,4 @@
-FROM postgres:11
+FROM postgres:14.3
 
 COPY ./buildfiles/postgres.sql /docker-entrypoint-initdb.d/postgres.sql
 COPY ./buildfiles/start.sh /start.sh
