@@ -40,6 +40,7 @@ DOMAIN=domain2.com
 # For Devs only
 DEV=FALSE
 NETWORK=sharpnet
+```
 
 **(See the [sharpnet](https://github.com/Sharpz7/sharpnet) documentation for more information)**
 
@@ -47,7 +48,6 @@ NETWORK=sharpnet
 
 ```bash
 sharpcd --remotefile https://raw.githubusercontent.com/Sharpz7/postgres/main/.sharpcd/sharpcd.yml
-```
 ```
 
 ## Maintainers
