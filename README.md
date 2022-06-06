@@ -13,8 +13,11 @@ A twin-container install of a [Postgres](https://www.postgresql.org/) Database a
 - Ensure the enviromental variables have been set in an enviromental variable file:
 
 ```env
+# Email and password for PGAdmin
 ADMIN_EMAIL=myemail@mail.com
 ADMINPASS=pgadminpass
+
+# Password for postgres
 POSTPASS=postgrespass
 
 # Domains that PG Admin will be available on
