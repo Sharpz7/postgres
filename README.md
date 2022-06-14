@@ -6,25 +6,13 @@ A twin-container install of a [Postgres](https://www.postgresql.org/) Database a
 
 ![](https://files.mcaq.me/752t.png)
 
-# Installation
+# Install Dependencies
 
 - Make sure [SharpCD](https://github.com/Sharpz7/sharpcd) havs been installed.
 
 - Ensure the enviromental variables have been set in an enviromental variable file:
 
 ```env
-# Email and password for PGAdmin
-ADMIN_EMAIL=myemail@mail.com
-ADMINPASS=pgadminpass
-
-# Password for postgres
-POSTPASS=postgrespass
-
-# Domains that PG Admin will be available on
-SHARPDOMAINS=domain1.com,domain2.com
-
-#=============================
-
 # sharpnet ports
 HTTP_PORT=80
 HTTPS_PORT=443
@@ -46,6 +34,30 @@ NETWORK=sharpnet
 ```
 
 **(See the [sharpnet](https://github.com/Sharpz7/sharpnet) documentation for more information)**
+
+- Run the following command to install the dependencies:
+
+```bash
+sharpcd --remotefile https://raw.githubusercontent.com/Sharpz7/postgres/main/.sharpcd/dependencies.yml
+```
+
+# Installation
+
+- Make sure [SharpCD](https://github.com/Sharpz7/sharpcd) havs been installed.
+
+- Ensure the enviromental variables have been set in an enviromental variable file:
+
+```env
+# Email and password for PGAdmin
+ADMIN_EMAIL=myemail@mail.com
+ADMINPASS=pgadminpass
+
+# Password for postgres
+POSTPASS=postgrespass
+
+# Domains that PG Admin will be available on
+SHARPDOMAINS=domain1.com,domain2.com
+```
 
 - Run the following command to install the postgres:
 
