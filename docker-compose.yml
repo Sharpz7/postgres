@@ -21,6 +21,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${ADMIN_EMAIL:?err}
       PGADMIN_DEFAULT_PASSWORD: ${ADMINPASS:?err}
+      PGADMIN_CONFIG_MAX_LOGIN_ATTEMPTS: 5
 
     volumes:
        - pgadmin:/root/.pgadmin
