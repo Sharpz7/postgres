@@ -18,7 +18,12 @@ jobs:
             echo "ADMIN_EMAIL=${ADMIN_EMAIL}" > .env
             echo "ADMINPASS=${ADMINPASS}" >> .env
             echo "POSTPASS=${POSTPASS}" >> .env
-            echo "SHARPDOMAINS=${SHARPDOMAINS}" >> .env
+            echo "SHARPDOMAINS=pg.mcaq.me" >> .env
+
+            echo "ADMIN_EMAIL=${ADMIN_EMAIL}" > .env2
+            echo "ADMINPASS=${ADMINPASS}" >> .env2
+            echo "POSTPASS=${POSTPASS}" >> .env2
+            echo "SHARPDOMAINS=pg.corp1.mcaq.me" >> .env2
 
       - sharpcd/deploy
 

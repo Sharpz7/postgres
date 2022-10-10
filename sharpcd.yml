@@ -8,3 +8,12 @@ tasks:
     sharpurl: https://mcaq.me:5666
     giturl: https://raw.githubusercontent.com/Sharpz7/
     compose: /postgres/main/docker-compose.yml
+
+  postgres_task_corp:
+    name: Postgres Server
+    envfile: .env2
+    type: docker
+    sharpurl: https://corp1.mcaq.me:5666
+    giturl: https://raw.githubusercontent.com/Sharpz7/
+    compose: /postgres/main/docker-compose.yml
+
