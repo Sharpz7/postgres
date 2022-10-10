@@ -10,7 +10,7 @@ tasks:
   #   compose: /postgres/main/docker-compose.yml
 
   postgres_task_corp:
-    name: Postgres Server
+    name: Postgres Server Corp
     envfile: .env2
     type: docker
     sharpurl: https://corp1.mcaq.me:5666
