@@ -11,7 +11,6 @@ RUN chmod -R 777 /sharpnet
 # try and find file docker-entrypoint.sh
 RUN find . -name docker-entrypoint.sh
 
-RUN chown -R postgres:postgres /data/postgres
-
-USER postgres
+# Add user postgres
+RUN useradd -ms /bin/bash postgres
 CMD ["/start.sh"]
