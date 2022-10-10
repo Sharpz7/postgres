@@ -7,4 +7,4 @@ SHARPDOMAINS=$(echo $SHARPDOMAINS | sed 's/,/ /g')
 
 sed -i "s/XXXXX/$SHARPDOMAINS/g" /sharpnet/nginx.conf
 
-exec runuser -u postgres "./usr/local/bin/docker-entrypoint.sh postgres"
+./usr/local/bin/docker-entrypoint.sh postgres
