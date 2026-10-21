@@ -1,46 +1,32 @@
 version: 2.1
 
-orbs:
-  docker: sharptools/docker@volatile
-  sharpcd: sharptools/sharpcd@volatile
-
+# Builds are explicitly approved and do not publish mutable tags or call SharpCD.
+# Production uses locally built, dated images until deployment automation is replaced.
 jobs:
-  deploy:
-    docker:
-      - image: cimg/base:2020.01
-
+  build:
+    machine:
+      image: ubuntu-2404:current
     steps:
-      - sharpcd/install
-
+      - checkout
       - run:
-          name: "Setup Env"
-          command: |
-            echo "ADMIN_EMAIL=${ADMIN_EMAIL}" > .env
-            echo "ADMINPASS=${ADMINPASS}" >> .env
-            echo "POSTPASS=${POSTPASS}" >> .env
-            echo "SHARPDOMAINS=pg.mcaq.me" >> .env
-
-            echo "ADMIN_EMAIL=${ADMIN_EMAIL}" > .env2
-            echo "ADMINPASS=${ADMINPASS}" >> .env2
-            echo "POSTPASS=${POSTPASS}" >> .env2
-            echo "SHARPDOMAINS=pg.corp1.mcaq.me" >> .env2
-
-      - sharpcd/deploy
-
+          name: Build security-updated image
+          command: docker build --pull -t "local/security-check:${CIRCLE_SHA1}" .
+  build-pgadmin:
+    machine:
+      image: ubuntu-2404:current
+    steps:
+      - checkout
+      - run:
+          name: Build patched pgAdmin overlay
+          command: docker build --pull -t "local/pgadmin-security-check:${CIRCLE_SHA1}" pgadmin
 workflows:
-  version: 2
-  workflow:
+  security-build:
     jobs:
-      - docker/build_wait:
-          context: General
-          image: sharp6292/postgres:latest
-
-
-      - deploy:
-          context: General
+      - approve-build:
+          type: approval
+      - build:
           requires:
-            - docker/build_wait
-
-          filters:
-            branches:
-              only: main
+            - approve-build
+      - build-pgadmin:
+          requires:
+            - approve-build
