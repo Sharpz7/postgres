@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Build security-updated image
-          command: docker build --pull -t "local/security-check:${CIRCLE_SHA1}" .
+          command: docker build --pull --no-cache -t "local/security-check:${CIRCLE_SHA1}" .
   build-pgadmin:
     machine:
       image: ubuntu-2404:current
@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run:
           name: Build patched pgAdmin overlay
-          command: docker build --pull -t "local/pgadmin-security-check:${CIRCLE_SHA1}" pgadmin
+          command: docker build --pull --no-cache -t "local/pgadmin-security-check:${CIRCLE_SHA1}" pgadmin
 workflows:
   security-build:
     jobs:
