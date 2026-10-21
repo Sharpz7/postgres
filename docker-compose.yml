@@ -3,7 +3,8 @@ version: "3.7"
 services:
   postgres:
     hostname: postgres
-    image: sharp6292/postgres:latest
+    image: security-update/postgres:20261021
+    container_name: postgres_task_corp_postgres_1
 
     environment:
       PGDATA: /data/postgres
@@ -17,20 +18,25 @@ services:
 
   pgadmin:
     hostname: pgadmin
-    image: dpage/pgadmin4
+    image: security-update/pgadmin:20261021
+    container_name: postgres_task_corp_pgadmin_1
     environment:
       PGADMIN_DEFAULT_EMAIL: ${ADMIN_EMAIL:?err}
       PGADMIN_DEFAULT_PASSWORD: ${ADMINPASS:?err}
       PGADMIN_CONFIG_MAX_LOGIN_ATTEMPTS: 5
 
     volumes:
-       - pgadmin:/root/.pgadmin
+       - pgadmin:/var/lib/pgadmin
 
     restart: always
 
 volumes:
   postgres:
+    external: true
+    name: security-update-pg17-production-20261021
   pgadmin:
+    external: true
+    name: security-update-pgadmin-production-20261021
 
 networks:
     default:
